@@ -1,0 +1,143 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,600;0,700;1,200;1,800&display=swap');
+
+// Variables
+$primaryColor: #328CC8;
+$secondaryColor: #2A77AA;
+$thirdColor: #2D5E82;
+$white: #FFFFFF;
+$black: #393C43;
+
+@mixin tombol {
+    background-color: $secondaryColor;
+    border-radius: 2em;
+    border: 0;
+    padding: 0.6em 1.4em;
+    text-decoration: none;
+}
+
+// Styles
+html {
+    //scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    &::before {
+        content: '';
+        background-image: url(../img/bg.png);
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 65vmax;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.custom-nav {
+    .navbar-brand {
+        .bold {
+            font-weight: 700;
+        }
+        
+        .thin {
+            font-weight: 400;
+        }
+    
+        span {
+            color: $primaryColor;
+            font-size: 1.8rem;
+
+            @media screen and (max-width: 768px) {
+                color: $thirdColor;
+            }
+            @media screen and (max-width: 480px) {
+                color: $white;
+            }
+        }
+    }
+
+    #navbarNav {
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    color: $white;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    margin-left: 2.4em;
+                    transition: .3s color ease-in-out;
+        
+                    &:hover {
+                        color: darken($primaryColor, 30%);
+                    }
+                }
+        
+                .sign-up-btn {
+                    @include tombol;
+                    transition: .3s ease;
+                    &:hover {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        margin-top: -1em;
+    }
+}
+
+#about {
+    margin-top: 4em;
+    padding-left: 10em;
+
+    h2 {
+        font-weight: 700;
+        font-size: 4rem;
+        color: $secondaryColor;
+        white-space: normal;
+        line-height: 1.1;
+    }
+    h3 {
+        margin-top: 1.5em;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: $secondaryColor;
+    }
+    p {
+        color: $thirdColor;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    .read-more {
+        padding-top: 1.3em;
+        a {
+            @include tombol;
+            font-weight: 600;
+            color: $white;
+            border: 2px solid transparent;
+            transition: .5s ease;
+            &:hover {
+                color: $secondaryColor;
+                background-color: transparent;
+                border: 2px solid $secondaryColor;
+            }
+        }
+        @media screen and (max-width: 680px) {
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        margin-top: 8em;
+        padding: 0 1em;
+    }
+    @media screen and (max-width: 680px) {
+        margin-top: 17em;
+        padding: 0 3em;
+    }
+}
